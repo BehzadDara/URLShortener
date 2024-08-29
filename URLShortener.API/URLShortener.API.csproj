@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\URLShortener.Application\URLShortener.Application.csproj" />
+    <ProjectReference Include="..\URLShortener.Domain\URLShortener.Domain.csproj" />
+    <ProjectReference Include="..\URLShortener.Infrastructure\URLShortener.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
