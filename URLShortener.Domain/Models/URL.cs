@@ -1,4 +1,6 @@
-﻿namespace URLShortener.Domain.Models;
+﻿using URLShortener.Domain.Helpers;
+
+namespace URLShortener.Domain.Models;
 
 public class URL
 {
@@ -13,7 +15,7 @@ public class URL
         return new URL
         {
             Original = original,
-            Shortened = original
+            Shortened = Hash.Sha256(original)
         };
     }
 

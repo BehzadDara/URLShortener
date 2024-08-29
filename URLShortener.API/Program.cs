@@ -2,15 +2,22 @@ using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using URLShortener.API.Configs;
 using URLShortener.Application;
 using URLShortener.Application.Behaviours;
+using URLShortener.Application.Configs;
 using URLShortener.Domain.Repositories;
 using URLShortener.Infrastructure;
 using URLShortener.Infrastructure.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.Configure<Settings>(builder.Configuration.GetSection("Settings"));
+
 builder.Services.AddControllers();
+
+builder.Services.AddLocalization();
+
 builder.Services.AddScoped<IURLRepository, URLRepository>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -35,6 +42,10 @@ builder.Services.AddSwaggerGen(c =>
             Url = new Uri("https://www.linkedin.com/in/behzaddara/")
         }
     });
+
+    c.OperationFilter<AddAcceptLanguageHeaderParameter>();
+
+    c.EnableAnnotations();
 });
 
 var app = builder.Build();

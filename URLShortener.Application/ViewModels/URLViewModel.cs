@@ -1,17 +1,6 @@
 ﻿namespace URLShortener.Application.ViewModels;
 
-public record URLViewModel
-    (
-    int Id,
-    string Original,
-    string Shortened,
-    DateTime CreatedAt,
-    int ClickCount
-    );
-
-
-/*
- public class URLViewModel
+public class URLViewModel
 {
     public int Id { get; set; }
     public required string Original { get; set; }
@@ -19,4 +8,3 @@ public record URLViewModel
     public DateTime CreatedAt { get; set; }
     public int ClickCount { get; set; }
 }
- */

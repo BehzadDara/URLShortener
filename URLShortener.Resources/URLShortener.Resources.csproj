@@ -7,20 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Messages.Designer.cs">
+    <Compile Update="Messagesfa.Designer.cs">
+      <DependentUpon>Messagesfa.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Messages.en.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Messages.en.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Messages.resx">
+    <EmbeddedResource Update="Messagesfa.resx">
+      <LastGenOutput>Messagesfa.Designer.cs</LastGenOutput>
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Messages.fa.resx">
+    <EmbeddedResource Update="Messages.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 
