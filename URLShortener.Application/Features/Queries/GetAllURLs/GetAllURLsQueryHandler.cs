@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using URLShortener.Application.ViewModels;
 using URLShortener.Domain.Repositories;
+using URLShortener.Resources;
 
 namespace URLShortener.Application.Features.Queries.GetAllURLs;
 
@@ -11,6 +12,6 @@ public class GetAllURLsQueryHandler(IURLRepository repository) : IRequestHandler
         var urls = await repository.GetAllAsync(cancellationToken);
         var viewModels = urls.ToViewModel();
 
-        return ResultViewModel<IReadOnlyList<URLViewModel>>.OK(viewModels, "Retrevied!");
+        return ResultViewModel<IReadOnlyList<URLViewModel>>.OK(viewModels, Messages.Success);
     }
 }

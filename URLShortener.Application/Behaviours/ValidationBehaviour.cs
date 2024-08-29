@@ -2,6 +2,7 @@
 using FluentValidation.Results;
 using MediatR;
 using URLShortener.Application.Exceptions;
+using URLShortener.Resources;
 
 namespace URLShortener.Application.Behaviours;
 
@@ -19,7 +20,7 @@ public class ValidationBehaviour<TRequest, TResponse>(IEnumerable<IValidator<TRe
             if (!validationResult.IsValid)
             {
                 var failures = Serialize(validationResult.Errors);
-                throw new BadRequestException(Messages, failures);
+                throw new BadRequestException(Messages.BadRequest, failures);
             }
         }
         return await next();
