@@ -22,14 +22,14 @@ namespace URLShortener.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Messagesfa {
+    public class Messages___Copy {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Messagesfa() {
+        internal Messages___Copy() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace URLShortener.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("URLShortener.Resources.Messagesfa", typeof(Messagesfa).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("URLShortener.Resources.Messages", typeof(Messages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -97,7 +97,7 @@ namespace URLShortener.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to موفق!.
+        ///   Looks up a localized string similar to Success!.
         /// </summary>
         public static string Success {
             get {

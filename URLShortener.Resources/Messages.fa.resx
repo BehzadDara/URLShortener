@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BadRequest" xml:space="preserve">
-    <value>Bad request!</value>
+    <value>aaaaaaaaaaa</value>
   </data>
   <data name="InvalidURL" xml:space="preserve">
-    <value>URL must start with "http"!</value>
+    <value>aaaaaaaaaaa</value>
   </data>
   <data name="NotFoundShortenedURL" xml:space="preserve">
-    <value>URL not found!</value>
+    <value>aaaaaaaaaaa</value>
   </data>
   <data name="RepetitiveOriginalURL" xml:space="preserve">
-    <value>URL already exists!</value>
+    <value>aaaaaaaaaaa</value>
   </data>
   <data name="Success" xml:space="preserve">
-    <value>موفق!</value>
+    <value>aaaaaaaaaaa</value>
   </data>
   <data name="URLShouldNotBeNullOrEmpty" xml:space="preserve">
-    <value>URL should not be null or empty!</value>
+    <value>aaaaaaaaaaa</value>
   </data>
 </root>

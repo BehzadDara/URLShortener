@@ -1,11 +1,14 @@
 using FluentValidation;
+using HealthChecks.UI.Client;
 using MediatR;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using URLShortener.API.Configs;
 using URLShortener.Application;
 using URLShortener.Application.Behaviours;
 using URLShortener.Application.Configs;
+using URLShortener.Domain.Enums;
 using URLShortener.Domain.Repositories;
 using URLShortener.Infrastructure;
 using URLShortener.Infrastructure.Implementations;
@@ -48,7 +51,22 @@ builder.Services.AddSwaggerGen(c =>
     c.EnableAnnotations();
 });
 
+builder.Services.AddHealthChecks().AddDbContextCheck<URLShortenerDBContext>("Database HealthCheck");
+
 var app = builder.Build();
+
+var supportedCultures = Enum
+    .GetValues(typeof(Languages))
+    .Cast<Languages>()
+    .Select(x => x.ToString())
+    .ToArray();
+
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 
 if (app.Environment.IsDevelopment())
 {
@@ -59,5 +77,6 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<GlobalExceptionHandler>();
 
 app.MapControllers();
+app.MapHealthChecks("/healthz", new HealthCheckOptions { ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse });
 
 app.Run();
