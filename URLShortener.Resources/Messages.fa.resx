@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BadRequest" xml:space="preserve">
-    <value>aaaaaaaaaaa</value>
+    <value>ورودی نامعتبر!</value>
   </data>
   <data name="InvalidURL" xml:space="preserve">
-    <value>aaaaaaaaaaa</value>
+    <value>لینک باید با "http" شروع شود!</value>
   </data>
   <data name="NotFoundShortenedURL" xml:space="preserve">
-    <value>aaaaaaaaaaa</value>
+    <value>لینک یافت نشد!</value>
   </data>
   <data name="RepetitiveOriginalURL" xml:space="preserve">
-    <value>aaaaaaaaaaa</value>
+    <value>لینک موجود است!</value>
   </data>
   <data name="Success" xml:space="preserve">
-    <value>aaaaaaaaaaa</value>
+    <value>موفق!</value>
   </data>
   <data name="URLShouldNotBeNullOrEmpty" xml:space="preserve">
-    <value>aaaaaaaaaaa</value>
+    <value>لینک اجباری است!</value>
   </data>
 </root>
