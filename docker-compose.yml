@@ -9,4 +9,4 @@ services:
     image: ${DOCKER_REGISTRY-}urlshortenerapi
     build:
       context: .
-      dockerfile: URLShortener.API\Dockerfile
+      dockerfile: URLShortener.API/Dockerfile
