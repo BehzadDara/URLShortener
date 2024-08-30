@@ -5,13 +5,15 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.API", "URLShortener.API\URLShortener.API.csproj", "{9A47DF2F-B5D0-4C70-AF35-005625EF5AA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Application", "URLShortener.Application\URLShortener.Application.csproj", "{DFF690F4-E5F9-4048-B963-1F4215CB41D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Application", "URLShortener.Application\URLShortener.Application.csproj", "{DFF690F4-E5F9-4048-B963-1F4215CB41D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Domain", "URLShortener.Domain\URLShortener.Domain.csproj", "{0425B0D4-29C0-4EF4-8BA1-BB7E79FAB069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Domain", "URLShortener.Domain\URLShortener.Domain.csproj", "{0425B0D4-29C0-4EF4-8BA1-BB7E79FAB069}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Infrastructure", "URLShortener.Infrastructure\URLShortener.Infrastructure.csproj", "{9A4486BA-601D-45E6-8689-3C33A4105DBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Infrastructure", "URLShortener.Infrastructure\URLShortener.Infrastructure.csproj", "{9A4486BA-601D-45E6-8689-3C33A4105DBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Resources", "URLShortener.Resources\URLShortener.Resources.csproj", "{5C8FA9B3-810B-472C-BB33-83B20C421EC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Resources", "URLShortener.Resources\URLShortener.Resources.csproj", "{5C8FA9B3-810B-472C-BB33-83B20C421EC6}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0F23C7AB-B814-4974-A6FB-6CCF27873B21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{5C8FA9B3-810B-472C-BB33-83B20C421EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C8FA9B3-810B-472C-BB33-83B20C421EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C8FA9B3-810B-472C-BB33-83B20C421EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F23C7AB-B814-4974-A6FB-6CCF27873B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F23C7AB-B814-4974-A6FB-6CCF27873B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F23C7AB-B814-4974-A6FB-6CCF27873B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F23C7AB-B814-4974-A6FB-6CCF27873B21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

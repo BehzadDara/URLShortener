@@ -55,6 +55,13 @@ builder.Services.AddHealthChecks().AddDbContextCheck<URLShortenerDBContext>("Dat
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<URLShortenerDBContext>();
+    dbContext.Database.Migrate();
+}
+
 var supportedCultures = Enum
     .GetValues(typeof(Languages))
     .Cast<Languages>()

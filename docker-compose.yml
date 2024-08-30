@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+
+  urlshortenerdb:
+    image: mcr.microsoft.com/mssql/server
+
+  urlshortener.api:
+    image: ${DOCKER_REGISTRY-}urlshortenerapi
+    build:
+      context: .
+      dockerfile: URLShortener.API\Dockerfile

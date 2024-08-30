@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+
+  urlshortenerdb:
+    container_name: urlshortenerdb
+    environment:
+      - SA_PASSWORD=Admin1234!!
+      - ACCEPT_EULA=Y
+    restart: always
+    ports:
+      - 8600:1433
+    networks:
+      - urlshortener_network
+
+  urlshortener.api:
+    container_name: urlshortener.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8001
+      - ConnectionStrings:DefaultConnection=Server=urlshortenerdb;Database=URLShortenerDB;User Id=sa;Password=Admin1234!!;TrustServerCertificate=True;
+    ports:
+      - "8080:8001"
+    depends_on:
+      - urlshortenerdb
+    networks:
+      - urlshortener_network
+
+networks:
+  urlshortener_network:
+    driver: bridge
