@@ -21,7 +21,9 @@ public class CreateURLCommandHandler(IURLRepository repository, IOptions<Setting
             throw new ConflictException(Messages.RepetitiveOriginalURL);
         }
 
-        var url = URL.Create(request.Original);
+        var urls = await repository.GetAllAsync(cancellationToken);
+
+        var url = URL.Create(request.Original, urls.Select(x => x.Shortened).ToList());
         await repository.AddAsync(url, cancellationToken);
 
         return ResultViewModel<URLViewModel>.OK(url.ToViewModel(settings.BaseURL), Messages.Success);

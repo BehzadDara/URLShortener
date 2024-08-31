@@ -10,12 +10,12 @@ public class URL
     public DateTime CreatedAt { get; } = DateTime.Now;
     public int ClickCount { get; private set; } = 0;
 
-    public static URL Create(string original)
+    public static URL Create(string original, List<string> shorteneds)
     {
         return new URL
         {
             Original = original,
-            Shortened = Hash.Sha256(original)
+            Shortened = MethodHelper.GenerateShortened(shorteneds)
         };
     }
 
