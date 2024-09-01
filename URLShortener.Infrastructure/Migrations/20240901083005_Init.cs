@@ -14,15 +14,13 @@ namespace URLShortener.Infrastructure.Migrations
                 name: "URLs",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Original = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Shortened = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Shortened = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Original = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClickCount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_URLs", x => x.Id);
+                    table.PrimaryKey("PK_URLs", x => x.Shortened);
                 });
         }
 

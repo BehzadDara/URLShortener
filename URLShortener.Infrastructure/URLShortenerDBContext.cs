@@ -9,6 +9,7 @@ public class URLShortenerDBContext(DbContextOptions options) : DbContext(options
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<URL>().HasKey(x => x.Id);
+        modelBuilder.Entity<URL>().HasKey(x => x.Original);
+        modelBuilder.Entity<URL>().HasKey(x => x.Shortened);
     }
 }

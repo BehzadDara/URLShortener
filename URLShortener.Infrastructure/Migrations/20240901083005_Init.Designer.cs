@@ -11,7 +11,7 @@ using URLShortener.Infrastructure;
 namespace URLShortener.Infrastructure.Migrations
 {
     [DbContext(typeof(URLShortenerDBContext))]
-    [Migration("20240829135027_Init")]
+    [Migration("20240901083005_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -26,24 +26,16 @@ namespace URLShortener.Infrastructure.Migrations
 
             modelBuilder.Entity("URLShortener.Domain.Models.URL", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Shortened")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("ClickCount")
                         .HasColumnType("int");
 
                     b.Property<string>("Original")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Shortened")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
+                    b.HasKey("Shortened");
 
                     b.ToTable("URLs");
                 });
