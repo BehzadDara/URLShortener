@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using URLShortener.API.Configs;
 using URLShortener.Application.Features.Commands.CreateURL;
 using URLShortener.Application.Features.Queries.GetAllURLs;
 using URLShortener.Application.Features.Queries.GetURLByShortened;
@@ -41,5 +42,19 @@ public class URLController(IMediator mediator) : ControllerBase
     {
         var result = await mediator.Send(new GetURLByShortenedQuery(input), cancellationToken);
         return RedirectPermanent(result);
+    }
+
+    [HttpOptions]
+    public IActionResult OptionsForUrls()
+    {
+        Response.Headers.Append("Allow", "GET, POST, OPTIONS");
+        return Ok();
+    }
+
+    [HttpOptions("{shortened}")]
+    public IActionResult OptionsForShortenedUrl()
+    {
+        Response.Headers.Append("Allow", "GET, OPTIONS");
+        return Ok();
     }
 }
