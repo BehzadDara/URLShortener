@@ -2,28 +2,21 @@
 
 public static class MethodHelper
 {
-    public static string GenerateShortened(List<string> shorteneds)
+    public static string GenerateShortened()
     {
-        string result;
-
-        do
-        {
-            result = GenerateRandomString(5);
-        } while (shorteneds.Contains(result));
-
-        return result;
+        return GenerateRandomString(5);
     }
 
     private static string GenerateRandomString(int length)
     {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        var random = new Random();
         var stringChars = new char[length];
 
-        for (int i = 0; i < stringChars.Length; i++)
+        for (int i = 0; i < length; i++)
         {
-            stringChars[i] = chars[random.Next(chars.Length)];
+            stringChars[i] = chars[Random.Shared.Next(chars.Length)];
         }
+        Random.Shared.Shuffle(stringChars);
 
         return new string(stringChars);
     }

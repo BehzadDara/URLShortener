@@ -32,6 +32,6 @@ public class URLRepository(URLShortenerDBContext dbContext) : IURLRepository
     public async Task<IReadOnlyList<URL>> GetAllAsync(CancellationToken cancellationToken)
     {
         var urls = await dbContext.Set<URL>().ToListAsync(cancellationToken);
-        return [.. urls.OrderByDescending(x => x.Id)];
+        return [.. urls.OrderByDescending(x => x.CreatedAt)];
     }
 }

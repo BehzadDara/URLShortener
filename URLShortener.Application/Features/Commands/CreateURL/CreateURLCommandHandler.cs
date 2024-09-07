@@ -21,11 +21,22 @@ public class CreateURLCommandHandler(IURLRepository repository, IOptions<Setting
             throw new ConflictException(Messages.RepetitiveOriginalURL);
         }
 
-        var urls = await repository.GetAllAsync(cancellationToken);
-
-        var url = URL.Create(request.Original, urls.Select(x => x.Shortened).ToList());
-        await repository.AddAsync(url, cancellationToken);
+        var url = await CreateUniqueURL(request.Original, cancellationToken);
 
         return ResultViewModel<URLViewModel>.OK(url.ToViewModel(settings.BaseURL), Messages.Success);
+    }
+
+    private async Task<URL> CreateUniqueURL(string original, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var url = URL.Create(original);
+            await repository.AddAsync(url, cancellationToken);
+            return url;
+        }
+        catch
+        {
+            return await CreateUniqueURL(original, cancellationToken);
+        }
     }
 }
