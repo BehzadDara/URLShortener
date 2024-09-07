@@ -10,7 +10,7 @@ namespace URLShortener.API.Controllers;
 
 
 [SwaggerTag("URLShortener service")]
-[Route("[controller]/[action]")]
+[Route("urls")]
 public class URLController(IMediator mediator) : ControllerBase
 {
     [SwaggerOperation("Make a URL shorter")]
@@ -36,7 +36,7 @@ public class URLController(IMediator mediator) : ControllerBase
     [SwaggerOperation("Redirect short URL to original URL")]
     [SwaggerResponse(StatusCodes.Status301MovedPermanently, "Redirect", typeof(void))]
     [SwaggerResponse(StatusCodes.Status404NotFound, "URL not found", typeof(void))]
-    [HttpGet("/{input}")]
+    [HttpGet("{input}")]
     public async Task<IActionResult> Get(string input, CancellationToken cancellationToken)
     {
         var result = await mediator.Send(new GetURLByShortenedQuery(input), cancellationToken);
