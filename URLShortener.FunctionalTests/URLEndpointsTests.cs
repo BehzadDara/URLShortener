@@ -18,9 +18,9 @@ public class URLEndpointsTests
 
     [Fact]
     public async Task CreateURL_ShouldReturnNewURL()
-    {        
+    {
         // Arrange
-        var original = "http://google.com/";
+        var original = "http://google.com/3";
         var command = new CreateURLCommand(original);
         var content = new StringContent(JsonConvert.SerializeObject(command), Encoding.UTF8, "application/json");
 
@@ -34,9 +34,9 @@ public class URLEndpointsTests
 
     [Fact]
     public async Task CreateURL_ShouldReturnConflict_WhenOriginalExists()
-    {        
+    {
         // Arrange
-        var original = "http://google.com/";
+        var original = "http://google.com/4";
         var command = new CreateURLCommand(original);
         var content = new StringContent(JsonConvert.SerializeObject(command), Encoding.UTF8, "application/json");
 

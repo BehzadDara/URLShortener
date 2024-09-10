@@ -25,8 +25,9 @@ public class GetURLByShortenedQueryTests(URLShortenerDBContextFixture fixture) :
         });
         var createURLCommandHandler = new CreateURLCommandHandler(repository, options);
         var createResponse = await createURLCommandHandler.Handle(command, CancellationToken.None);
+        var shortened = createResponse.Value!.Shortened.Split('/').Last();
 
-        var query = new GetURLByShortenedQuery(createResponse.Value!.Shortened);
+        var query = new GetURLByShortenedQuery(shortened);
         var getURLByShortenedQueryHandler = new GetURLByShortenedQueryHandler(repository);
 
 
@@ -51,14 +52,15 @@ public class GetURLByShortenedQueryTests(URLShortenerDBContextFixture fixture) :
         });
         var createURLCommandHandler = new CreateURLCommandHandler(repository, options);
         var createResponse = await createURLCommandHandler.Handle(command, CancellationToken.None);
+        var shortened = createResponse.Value!.Shortened.Split('/').Last();
 
-        var query = new GetURLByShortenedQuery(createResponse.Value!.Shortened);
+        var query = new GetURLByShortenedQuery(shortened);
         var getURLByShortenedQueryHandler = new GetURLByShortenedQueryHandler(repository);
         _ = await getURLByShortenedQueryHandler.Handle(query, CancellationToken.None);
 
 
         // Act
-        var response = await repository.GetByShortenedAsync(createResponse.Value.Shortened, CancellationToken.None);
+        var response = await repository.GetByShortenedAsync(shortened, CancellationToken.None);
 
         // Assert
         response.Should().NotBeNull();

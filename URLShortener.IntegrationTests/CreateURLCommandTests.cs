@@ -10,13 +10,13 @@ using Xunit;
 
 namespace URLShortener.IntegrationTests;
 
-public class CreateURLCommandTests(URLShortenerDBContextFixture fixture): IClassFixture<URLShortenerDBContextFixture>
+public class CreateURLCommandTests(URLShortenerDBContextFixture fixture) : IClassFixture<URLShortenerDBContextFixture>
 {
     [Fact]
     public async Task Handle_ShouldCreateURL_WhenOriginalDoesNotExist()
     {
         // Arrange
-        var original = "http://google.com/";
+        var original = "http://google.com/1";
         var command = new CreateURLCommand(original);
         var repository = new URLRepository(fixture.BuildDbContext(Guid.NewGuid().ToString()));
         var options = Options.Create(new Settings
@@ -42,7 +42,7 @@ public class CreateURLCommandTests(URLShortenerDBContextFixture fixture): IClass
     public async Task Handle_ShouldThrowException_WhenOriginalExists()
     {
         // Arrange
-        var original = "http://google.com/";
+        var original = "http://google.com/2";
         var command = new CreateURLCommand(original);
         var repository = new URLRepository(fixture.BuildDbContext(Guid.NewGuid().ToString()));
         var options = Options.Create(new Settings

@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using URLShortener.API.Configs;
 using URLShortener.Application.Features.Commands.CreateURL;
 using URLShortener.Application.Features.Queries.GetAllURLs;
 using URLShortener.Application.Features.Queries.GetURLByShortened;
@@ -19,7 +18,7 @@ public class URLController(IMediator mediator) : ControllerBase
     [SwaggerResponse(StatusCodes.Status400BadRequest, "Invalid URL", typeof(void))]
     [SwaggerResponse(StatusCodes.Status409Conflict, "URL already exists", typeof(void))]
     [HttpPost]
-    public async Task<IActionResult> Create(CreateURLCommand request, CancellationToken cancellationToken)
+    public async Task<IActionResult> Create([FromBody] CreateURLCommand request, CancellationToken cancellationToken)
     {
         var result = await mediator.Send(request, cancellationToken);
         return Ok(result);
