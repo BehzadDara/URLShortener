@@ -75,7 +75,7 @@ var localizationOptions = new RequestLocalizationOptions()
 
 app.UseRequestLocalization(localizationOptions);
 
-app.UseStaticFiles();
+//app.UseStaticFiles();
 
 if (app.Environment.IsDevelopment())
 {

@@ -8,11 +8,8 @@
     <!-- Link to Swagger's default styles -->
     <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
 
-    <!-- Add your custom styles -->
-    <link id="customStylesheet" rel="stylesheet" href="/swagger-ui/Custom.css">
-
+    <!-- Inline CSS for theme and button styling -->
     <style id="themeStyles">
-        /* Light theme default styles */
         body {
             background-color: #fff;
             color: #000;
@@ -38,19 +35,20 @@
         .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
             color: #0f0;
         }
+    </style>
 
-        /* Button styling */
+    <style>
         #toggleTheme {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            z-index: 1000; /* Ensures the button stays on top of other elements */
+            z-index: 1000; /* Ensure it stays on top */
         }
 
             #toggleTheme:hover {
