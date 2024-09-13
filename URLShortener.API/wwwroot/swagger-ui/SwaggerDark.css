@@ -1,15 +1,168 @@
-﻿body {
-    background-color: #000 !important;
+﻿/* Overall background for the entire page */
+body {
+    background-color: #000 !important; /* Dark background for the entire page */
+    color: #fff; /* Default text color */
+    font-family: Arial, sans-serif; /* Ensure text readability */
 }
 
+/* General text styling */
 * {
-    color: #fff !important;
+    color: #fff !important; /* Apply white color to all text elements */
+    line-height: 1.5; /* Improve readability with line height */
 }
 
+/* Link colors */
 a {
-    color: #00f !important;
+    color: #00f !important; /* Blue color for links */
+    text-decoration: none; /* Remove underline */
 }
 
+    a:hover {
+        color: #0ff !important; /* Light cyan on hover for better visibility */
+        text-decoration: underline; /* Add underline on hover */
+    }
+
+/* Header colors */
 h1, h2, h3, h4, h5, h6 {
-    color: #0f0 !important;
+    color: #0f0 !important; /* Green color for headers */
+}
+
+/* Styling for code blocks */
+pre, code {
+    background-color: #333; /* Darker background for code blocks */
+    color: #f8f8f2; /* Light color for code text */
+    border-radius: 5px; /* Rounded corners for code blocks */
+    padding: 10px; /* Padding for better readability */
+    overflow-x: auto; /* Horizontal scroll for overflow content */
+}
+
+/* Table styling */
+table {
+    border-collapse: collapse; /* Remove space between borders */
+    width: 100%; /* Full width tables */
+}
+
+th, td {
+    padding: 10px; /* Add padding for readability */
+    border: 1px solid #444; /* Dark borders for table cells */
+}
+
+th {
+    background-color: #222; /* Darker background for table headers */
+}
+
+td {
+    background-color: #333; /* Slightly lighter background for table cells */
+}
+
+/* Form elements styling */
+input, select, textarea {
+    background-color: #222; /* Dark background for input elements */
+    color: #fff; /* White text color */
+    border: 1px solid #444; /* Dark border for input elements */
+    padding: 8px; /* Padding for better usability */
+    border-radius: 4px; /* Rounded corners for inputs */
+}
+
+    input:focus, select:focus, textarea:focus {
+        border-color: #00f; /* Blue border on focus */
+        outline: none; /* Remove default outline */
+    }
+
+/* Button styling */
+button {
+    background-color: #444; /* Dark background for buttons */
+    color: #fff; /* White text color for buttons */
+    border: 1px solid #666; /* Darker border for buttons */
+    padding: 10px 20px; /* Padding for better appearance */
+    border-radius: 5px; /* Rounded corners for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+    button:hover {
+        background-color: #555; /* Slightly lighter background on hover */
+    }
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #222; /* Dark background for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #444; /* Darker color for the scrollbar thumb */
+    border-radius: 10px; /* Rounded scrollbar thumb */
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555; /* Lighter color on hover */
+    }
+
+/* API documentation styles */
+.swagger-ui .topbar {
+    background-color: #111; /* Dark background for the top bar */
+}
+
+.swagger-ui .api-selector {
+    background-color: #222; /* Dark background for API selector */
+}
+
+/* Arrow styles for expanding APIs */
+.swagger-ui .operation .arrow {
+    color: #0f0; /* Green color for the arrows */
+    transition: transform 0.3s ease; /* Smooth transition for arrow rotation */
+}
+
+    /* Arrow rotation when API section is expanded */
+    .swagger-ui .operation .arrow.open {
+        transform: rotate(90deg); /* Rotate arrow to indicate expansion */
+    }
+
+/* Styling for API operation sections when expanded */
+.swagger-ui .operation.expanded {
+    background-color: #222; /* Darker background for expanded sections */
+    border: 1px solid #444; /* Dark border for expanded sections */
+    padding: 10px; /* Padding for better readability */
+    border-radius: 5px; /* Rounded corners for expanded sections */
+}
+
+    /* Text and header colors within expanded API sections */
+    .swagger-ui .operation.expanded .operation-summary,
+    .swagger-ui .operation.expanded .operation-parameters {
+        color: #fff; /* White text color for summaries and parameters */
+    }
+
+/* Styling for API response sections */
+.swagger-ui .responses {
+    background-color: #333; /* Dark background for response sections */
+    border: 1px solid #444; /* Dark border for response sections */
+    border-radius: 5px; /* Rounded corners for response sections */
+    padding: 10px; /* Padding for better readability */
+}
+
+.swagger-ui .response-container {
+    color: #f8f8f2; /* Light color for response content */
+}
+
+/* Additional styling for tags or labels */
+.swagger-ui .tag {
+    background-color: #444; /* Dark background for tags */
+    color: #fff; /* White text color for tags */
+    padding: 5px; /* Padding for tags */
+    border-radius: 3px; /* Rounded corners for tags */
+}
+
+/* Styling for breadcrumbs or navigation */
+.swagger-ui .breadcrumb {
+    color: #00f; /* Blue color for breadcrumbs */
+}
+
+/* Blockquotes or special text areas */
+blockquote {
+    border-left: 5px solid #0f0; /* Green border for blockquotes */
+    padding-left: 10px; /* Padding for blockquotes */
+    background-color: #333; /* Dark background for blockquotes */
 }
