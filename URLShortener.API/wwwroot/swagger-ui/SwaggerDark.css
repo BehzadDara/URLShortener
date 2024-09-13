@@ -1,0 +1,15 @@
+﻿body {
+    background-color: #000 !important;
+}
+
+* {
+    color: #fff !important;
+}
+
+a {
+    color: #00f !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #0f0 !important;
+}

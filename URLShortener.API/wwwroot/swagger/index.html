@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swagger UI</title>
+
+    <!-- Link to Swagger's default styles -->
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
+
+    <!-- Add your custom styles -->
+    <link id="customStylesheet" rel="stylesheet" href="/swagger-ui/Custom.css">
+
+    <style id="themeStyles">
+        /* Light theme default styles */
+        body {
+            background-color: #fff;
+            color: #000;
+        }
+
+        a {
+            color: #00f;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #000;
+        }
+        /* Dark theme styles (initially hidden) */
+        .dark-mode body {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .dark-mode a {
+            color: #00f;
+        }
+
+        .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+            color: #0f0;
+        }
+
+        /* Button styling */
+        #toggleTheme {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 1000; /* Ensures the button stays on top of other elements */
+        }
+
+            #toggleTheme:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+
+    <!-- Button to toggle between dark and light mode -->
+    <button id="toggleTheme">Switch to Dark Mode</button>
+
+    <!-- Swagger UI Bundle -->
+    <script src="./swagger-ui-bundle.js" charset="UTF-8"></script>
+    <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"></script>
+    <script>
+        window.onload = function () {
+            const ui = SwaggerUIBundle({
+                url: "/swagger/v1/swagger.json",
+                dom_id: '#swagger-ui',
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIStandalonePreset
+                ],
+                layout: "StandaloneLayout"
+            });
+
+            const toggleButton = document.getElementById('toggleTheme');
+
+            let isDarkMode = false;
+
+            toggleButton.addEventListener('click', function () {
+                isDarkMode = !isDarkMode;
+
+                if (isDarkMode) {
+                    document.body.classList.add('dark-mode');
+                    toggleButton.innerText = "Switch to Light Mode";
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    toggleButton.innerText = "Switch to Dark Mode";
+                }
+            });
+        };
+    </script>
+</body>
+</html>

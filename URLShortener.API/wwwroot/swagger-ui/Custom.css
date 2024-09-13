@@ -1,0 +1,12 @@
+﻿#toggleTheme {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggleTheme:hover {
+    background-color: #0056b3;
+}

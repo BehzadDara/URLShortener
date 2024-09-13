@@ -50,7 +50,7 @@ public class URLController(IMediator mediator) : ControllerBase
         return Ok();
     }
 
-    [HttpOptions("{shortened}")]
+    [HttpOptions("{input}")]
     public IActionResult OptionsForShortenedUrl()
     {
         Response.Headers.Append("Allow", "GET, OPTIONS");
