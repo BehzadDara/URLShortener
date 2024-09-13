@@ -5,39 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swagger UI</title>
 
-    <!-- Link to Swagger's default styles -->
     <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
 
-    <!-- Inline CSS for theme and button styling -->
-    <style id="themeStyles">
+    <link id="customStylesheet" rel="stylesheet" href="/swagger-ui/ToggleTheme.css">
+
+    <link id="darkThemeStylesheet" rel="stylesheet" href="" />
+
+    <style>
+
         body {
             background-color: #fff;
             color: #000;
         }
 
-        a {
-            color: #00f;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            color: #000;
-        }
-        /* Dark theme styles (initially hidden) */
-        .dark-mode body {
-            background-color: #000;
-            color: #fff;
-        }
-
-        .dark-mode a {
-            color: #00f;
-        }
-
-        .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
-            color: #0f0;
-        }
-    </style>
-
-    <style>
         #toggleTheme {
             background-color: #007bff;
             color: white;
@@ -48,7 +28,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 1000; /* Ensure it stays on top */
+            z-index: 1000;
         }
 
             #toggleTheme:hover {
@@ -59,10 +39,8 @@
 <body>
     <div id="swagger-ui"></div>
 
-    <!-- Button to toggle between dark and light mode -->
     <button id="toggleTheme">Switch to Dark Mode</button>
 
-    <!-- Swagger UI Bundle -->
     <script src="./swagger-ui-bundle.js" charset="UTF-8"></script>
     <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"></script>
     <script>
@@ -78,6 +56,7 @@
             });
 
             const toggleButton = document.getElementById('toggleTheme');
+            const darkThemeStylesheet = document.getElementById('darkThemeStylesheet');
 
             let isDarkMode = false;
 
@@ -85,10 +64,10 @@
                 isDarkMode = !isDarkMode;
 
                 if (isDarkMode) {
-                    document.body.classList.add('dark-mode');
+                    darkThemeStylesheet.href = "/swagger-ui/SwaggerDarkV2.css";
                     toggleButton.innerText = "Switch to Light Mode";
                 } else {
-                    document.body.classList.remove('dark-mode');
+                    darkThemeStylesheet.href = "";
                     toggleButton.innerText = "Switch to Dark Mode";
                 }
             });

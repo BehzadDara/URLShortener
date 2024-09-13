@@ -75,19 +75,14 @@ var localizationOptions = new RequestLocalizationOptions()
 
 app.UseRequestLocalization(localizationOptions);
 
-//app.UseStaticFiles();
+app.UseStaticFiles();
 
 if (app.Environment.IsDevelopment())
 {
     var env = app.Services.GetRequiredService<IWebHostEnvironment>();
 
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "URL Shortener");
-        //c.InjectStylesheet("/swagger-ui/Custom.css");
-        c.IndexStream = () => File.OpenRead(Path.Combine(env.ContentRootPath, "wwwroot/swagger/index.html"));
-    });
+    app.UseSwaggerUI();
 }
 
 app.UseMiddleware<GlobalExceptionHandler>();
